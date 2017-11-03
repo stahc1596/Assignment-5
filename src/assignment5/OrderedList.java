@@ -26,17 +26,14 @@ public class OrderedList {
             IntNode temp = new IntNode(num);
             head = temp;
         }else{
-        //Travel to the position
-            for(int i = 0; i < numItems - 1; i++){
-                if(num >= node.getNum()){
-                    node = node.getNext();
-                }else{
-                    //node is the last node in the list
-                    IntNode temp = new IntNode(num);
-                    //Insert into list
-                    node.setNext(temp);
-                }
+        //Travel to the end
+            while(node.getNext() != null){
+                node = node.getNext();
             }
+            //node is the last node in the list
+            IntNode temp = new IntNode(num);
+            //Insert into list
+            node.setNext(temp);
         }
         numItems++;
     }
