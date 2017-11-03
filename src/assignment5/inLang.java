@@ -54,13 +54,9 @@ public class inLang {
         while(stack[counter] == stack[length - counter - 1] && stack[counter] != '$'){
             counter++;
         }
-        //If statement determines if all letters were equal or not and returns
+        //Return statement determines if all letters were equal or not and returns
         //answer to user
-        if(counter == length - counter - 1){
-            return true;
-        }else{
-            return false;
-        }
+        return counter == length - counter - 1;
     }
     /**
      * @param args the command line arguments
