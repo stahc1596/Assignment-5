@@ -27,13 +27,22 @@ public class OrderedList {
             head = temp;
         }else{
         //Travel to the end
+            int count = 0;
+            int tot = 0;
             while(node.getNext() != null){
                 node = node.getNext();
+                tot++;
             }
             //node is the last node in the list
             IntNode temp = new IntNode(num);
             //Insert into list
             node.setNext(temp);
+            node = null;
+            while(num < node.getNum()){
+                node.getNext();
+                count++;
+            }
+            int store = node.getNum();
         }
         numItems++;
     }
