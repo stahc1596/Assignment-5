@@ -21,16 +21,16 @@ public class OrderedList {
     public void add(int num) {
         //Start at beginning of list
         IntNode node = head;
+        //Previous keeps track of the node we used to be on
         IntNode prev = null;
         //See if you're at the start
         if (node == null) {
             IntNode temp = new IntNode(num);
             head = temp;
         } else {
-            //Travel to the end
-
+            //Travel to the corresponding spot for the number
             while (node != null) {
-                // need to insert BEFORE node
+                //------------------------------------------
                 if (num < node.getNum()) {
 
                     IntNode temp = new IntNode(num);
@@ -77,11 +77,28 @@ public class OrderedList {
     public void remove(int num) {
         IntNode node = head;
         IntNode prev = null;
-        while(num != node.getNum()){
-            prev = node;
-            node.getNext();
+        int counter = 0;
+        if(num == node.getNum()){
+            head = head.getNext();
+        }else{
+            while(num != node.getNum()){
+                prev = node;
+                node = node.getNext();
+                counter++;
+            }
+            if(counter == numItems){
+                //Sever the link
+                prev.setNext(null);
+            }else{
+                //The node to remove
+                IntNode toRemove = prev.getNext();
+                //It's next node
+                IntNode next = toRemove.getNext();
+                //Set all links
+                prev.setNext(next);
+                toRemove.setNext(null);
+            }
         }
-        
         numItems--;
     }
 
@@ -94,7 +111,13 @@ public class OrderedList {
         list.add(8);
         list.add(5);
         list.add(1);
-        for (int i = 0; i < 4; i++) {
+        System.out.println("First List:");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+        list.remove(3);
+        System.out.println("New List:");
+        for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
     }
