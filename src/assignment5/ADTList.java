@@ -12,24 +12,25 @@ public class ADTList {
 
     private int numItems;
     private int[] spot;
-    
-    public ADTList(){
+
+    public ADTList() {
         //Constructor creates an array of ten spots
         numItems = 0;
         spot = new int[10];
     }
-    public void add(int index, int num){
-        if(index < spot.length){
+
+    public void add(int index, int num) {
+        if (index < spot.length) {
             //If the position the number needs to be place in the array is a
             //Real position in the array, then the number is inserted into the
             //Array at that position
             spot[index] = num;
             numItems++;
-        }else{
+        } else {
             //Otherwise, the array doubles in size to create a spot where the
             //Number can fit in the new array
-            int[] temp = new int[spot.length*2];
-            for(int i = 0; i < spot.length; i++){
+            int[] temp = new int[spot.length * 2];
+            for (int i = 0; i < spot.length; i++) {
                 temp[i] = spot[i];
             }
             //The number is then added to the array
@@ -38,30 +39,35 @@ public class ADTList {
             numItems++;
         }
     }
-    public void remove(int index){
+
+    public void remove(int index) {
         //To remove a number is to replace it with a zero
         spot[index] = 0;
         numItems--;
     }
-    public int size(){
+
+    public int size() {
         //Return how many numbers are in the array
         return numItems;
     }
-    public boolean isEmpty(){
+
+    public boolean isEmpty() {
         //For loop runs through the entire array to determine if the array is
         //Full of zeros or not
-        for(int i = 0; i < spot.length; i++){
-            if(spot[i] != 0){
+        for (int i = 0; i < spot.length; i++) {
+            if (spot[i] != 0) {
                 return false;
             }
         }
         //If the array is full of zeros, then the array is empty
         return true;
     }
-    public int get(int index){
+
+    public int get(int index) {
         //Return the number stored in the position in the array that is specified
         return spot[index];
     }
+
     /**
      * @param args the command line arguments
      */
@@ -74,10 +80,10 @@ public class ADTList {
         list.add(10, 5);
         System.out.println("Size: " + list.size());
         //For loop goes through entire array and outputs all values inserted
-        for(int i = 0; i < list.spot.length; i++){
+        for (int i = 0; i < list.spot.length; i++) {
             //Zeros are considered to not be numbers, therefore all spots with
             //A zero is considered empty and the system doesn't ouput zeros
-            if(list.get(i) != 0){
+            if (list.get(i) != 0) {
                 System.out.println(list.get(i));
             }
         }

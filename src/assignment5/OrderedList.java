@@ -37,7 +37,7 @@ public class OrderedList {
                     temp.setNext(node);
                     if (prev != null) {
                         prev.setNext(temp);
-                    }else{
+                    } else {
                         //If the right spot is the beginning of the list, then
                         //This happens
                         head = temp;
@@ -49,16 +49,16 @@ public class OrderedList {
                     prev = node;
                     node = node.getNext();
                 }
-                
+
             }
             //This if statement goes off if the right spot for the number is the
             //End of the list
-            if(node == null){
+            if (node == null) {
                 IntNode temp = new IntNode(num);
                 prev.setNext(temp);
             }
-            
-            
+
+
         }
         //Increase the amount of items in the list by one
         numItems++;
@@ -92,22 +92,22 @@ public class OrderedList {
         int counter = 0;
         //If the number that is needed to be removed is at the beginning of
         //The list, then it removes that number
-        if(num == node.getNum()){
+        if (num == node.getNum()) {
             head = head.getNext();
-        }else{
+        } else {
             //Otherwise we need to determine where that number is in the list
             //Using this while loop
-            while(num != node.getNum()){
+            while (num != node.getNum()) {
                 prev = node;
                 node = node.getNext();
                 //Counter keeps track of where we are
                 counter++;
             }
             //If the number is at the end of the list, then the number is removed
-            if(counter == numItems){
+            if (counter == numItems) {
                 //Sever the link
                 prev.setNext(null);
-            }else{
+            } else {
                 //The node to remove
                 IntNode toRemove = prev.getNext();
                 //It's next node
